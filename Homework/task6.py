@@ -5,13 +5,19 @@
  Необходимо использовать написанную ранее функцию int_func().'''
 
 def str_check(str_check: str) -> bool:
-
+    check = True
     for char in str_of_words:
-        char_code = ord(char)
-    if ((((char_code != 35) and (char_code < 97))) or (char_code > 122)):
-        check = False
-    else:
-        check = True
+        if check:
+            char_code = ord(char)
+            print(char_code)
+            print ((((char_code != 35) and (char_code < 97))) or (char_code > 122))
+
+            if ((((char_code != 35) and (char_code < 97))) or (char_code > 122)):
+                check = False
+            else:
+                check = True
+        else:
+            break
     return check
 
 
@@ -22,7 +28,7 @@ def word_first_letter_up(word: str) -> str:
 
 while True:
     str_of_words = input('Введите строку слов из латинских букв в нижнем регистре, разделенных пробелами: ')
-
+    print("xtr ", str_check(str_of_words))
     if str_check(str_of_words):
         break
     else:
