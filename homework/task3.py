@@ -7,10 +7,19 @@
 '''
 
 
+def chek_unic(el, lister):
+    i = 0
+    for _ in lister:
+        if _ == el:
+            i += 1
+    if i > 1:
+        return False
+    else:
+        return True
+
 
 my_list = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
 my_set = set(my_list)
 print(my_list[1:])
-unic_list = [i for in, el in enumirate(my_list) if i != [ y for y in mi] ]
-
+unic_list = [el for el in my_list if chek_unic(el, my_list)]
 print(unic_list)

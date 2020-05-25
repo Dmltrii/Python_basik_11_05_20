@@ -5,6 +5,7 @@
 '''
 
 from sys import argv
+
 # param[0] - выработка в часах, param[1] - выработка в часах, param[2] - выработка в часах
 param = []
 i = 1

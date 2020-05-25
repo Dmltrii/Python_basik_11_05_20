@@ -37,6 +37,7 @@ for i in count(param[0]):
 
 from itertools import cycle
 from sys import argv
+
 # param[0] - строка, param[1] - количество итераций
 param = []
 param.append(argv[1])

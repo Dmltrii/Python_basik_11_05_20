@@ -7,11 +7,10 @@
 Подсказка: использовать функцию range() и генератор.
 '''
 
-
 import random
 
 upper_list = []
-my_list = [el*random.randrange(2, 10, 3) for el in range(10, 20)]
+my_list = [el * random.randrange(2, 10, 3) for el in range(10, 20)]
 print(my_list)  # начальный список
 upper_list = [el for i, el in enumerate(my_list[1:]) if el > my_list[i]]
 print(upper_list)  # список после упорядычивания
