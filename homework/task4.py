@@ -8,6 +8,7 @@ Four — 4
 числительные должны заменяться на русские. Новый блок строк должен записываться в новый текстовый файл.
 '''
 import os
+
 # list = []
 # list.append('One')
 # print(list[0] == 'One')
@@ -18,7 +19,6 @@ line_list = []
 with open("to_task4", encoding='utf-8') as in_file:
     for line in in_file:
         line_list.append(line.split())
-
 
 for line in line_list:
     for _ in line:
@@ -31,7 +31,6 @@ for line in line_list:
             line[0] = 'Три'
         elif line[0] == 'Four':
             line[0] = 'Четыре'
-
 
 with open(file_path, 'w', encoding='UTF-8') as out_file:
     for line in line_list:

@@ -18,4 +18,3 @@ for line in line_list:
     i += 1
 mid_sum = sum / i
 print(f'средняя сумма :{mid_sum}')
-
