@@ -13,3 +13,25 @@
 
 Подсказка: использовать менеджеры контекста.
 '''
+
+import os
+
+firm_path = os.path.join(os.path.dirname(__file__), 'to_task7')
+db_dict = {}
+average_profit = 0
+i = 0
+with open(firm_path, 'r', encoding='utf-8') as file:
+    for line in file:
+        data = [line.split(' ')]
+        # tmp_dict = {}
+        profit = int(data[0][2]) - int(data[0][3])
+        db_dict[data[0][0]] = profit
+        print(profit > 0)
+        if profit > 0:
+            average_profit = average_profit + profit
+            print(average_profit)
+        i += 1
+average_profit_dict = {"average_profit": average_profit}
+db_list = [db_dict, average_profit_dict]
+print(db_list)
+

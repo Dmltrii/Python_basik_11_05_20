@@ -16,10 +16,6 @@ import os
 
 schedule_path = os.path.join(os.path.dirname(__file__), 'to_task6')
 db_dict = {}
-line_list = []
-sub_name = []
-sub_hours = []
-sub_hour = []
 with open(schedule_path, 'r', encoding='utf-8') as file:
     for line in file:
         sub_name = []
@@ -31,7 +27,6 @@ with open(schedule_path, 'r', encoding='utf-8') as file:
         sub_hours.append(line.split('('))
         for _ in sub_hours:
             for __ in _:
-                # print(__)
                 sub_hour.append(__.split())
         for _ in sub_hour:
             for __ in _:
