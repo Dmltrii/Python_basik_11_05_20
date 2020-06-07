@@ -6,3 +6,18 @@
 метода.
 Например: 20м * 5000м * 25кг * 5см = 12500 т
 '''
+
+
+class Road:
+
+    def __init__(self, length, width):
+        self._length = int(length)
+        self._width = int(width)
+
+    def mass_ashp_sum(self, mass, thickness):
+        return self._length * self._width * mass * thickness
+
+res = Road(20, 5000)
+print(res.mass_ashp_sum(25, 5))
+
+
