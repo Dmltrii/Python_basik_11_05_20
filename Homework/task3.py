@@ -7,23 +7,26 @@ income (доход). Последний атрибут должен быть з�
 атрибутов, вызвать методы экземпляров).
 '''
 
+
 class Worker:
 
     def __init__(self, name, surname, position, wage, bonus):
         self.name = name
         self.surname = surname
         self.position = position
-        self.income = {"wage": wage, "bonus": bonus}
+        self._income = {"wage": wage, "bonus": bonus}
         # print(sum(self.income.values()))
+
 
 class Position(Worker):
 
     def get_full_name(self):
-       return print(f'Полное имя: {self.name} {self.surname}')
+        return print(f'Полное имя: {self.name} {self.surname}')
 
-    # def get_total_income(self):
-    #     print(f'Дохода с учетом премии: {sum(super().income.values())}')
+    def get_total_income(self):
+        print(f'Дохода с учетом премии: {sum(self._income.values())}')
+
 
 person_1 = Position('Иван', 'Иванов', 'Мастер-фломастер', 122, 123)
-print(person_1.get_full_name())
-# print(person_1.get_total_income())
+person_1.get_full_name()
+person_1.get_total_income()
