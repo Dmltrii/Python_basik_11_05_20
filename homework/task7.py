@@ -14,6 +14,7 @@
 Подсказка: использовать менеджеры контекста.
 '''
 
+import json
 import os
 
 firm_path = os.path.join(os.path.dirname(__file__), 'to_task7')
@@ -30,3 +31,5 @@ with open(firm_path, 'r', encoding='utf-8') as file:
 average_profit_dict = {"average_profit": average_profit}
 db_list = [db_dict, average_profit_dict]
 print(db_list)
+with open("my_file.json", "w") as write_f:
+    json.dump(db_list, write_f)
