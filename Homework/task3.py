@@ -21,3 +21,62 @@
 Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод make_order() вернет строку:
 *****\n*****\n*****.
 '''
+
+
+class Cell:
+    def __init__(self, num_of_cells: int):
+        self.__num_of_cells = int(num_of_cells)
+        self.__num_of_cells_out = self.__num_of_cells
+
+    def __add__(self, other):
+        self.__num_of_cells_out = self.__num_of_cells + other.__num_of_cells
+        return Cell(self.__num_of_cells)
+
+    def __sub__(self, other):
+        self.__num_of_cells_out = self.__num_of_cells - other.__num_of_cells
+        if self.__num_of_cells_out > 0:
+            return Cell(self.__num_of_cells_out)
+        else:
+            return f'Not enough cells'
+
+    def __mul__(self, other):
+        self.__num_of_cells_out = self.__num_of_cells * other.__num_of_cells
+        return Cell(self.__num_of_cells_out)
+
+    def __truediv__(self, other):
+        result = self.__num_of_cells / other.__num_of_cells
+        rest = result - int(result)
+        # print(result)
+        if rest > 0.5:
+            self.__num_of_cells_out = int(result + 1)
+            return Cell(self.__num_of_cells_out)
+        else:
+            self.__num_of_cells_out = int(result)
+            return Cell(self.__num_of_cells_out)
+
+    def make_order(self, order: int):
+        result = ''
+        order = int(order)
+        rest = self.__num_of_cells % order
+        num_of_rows = self.__num_of_cells // order
+        for _ in range(num_of_rows):
+            result += '*' * order + '\\n'
+        result += '*' * rest
+        return result
+
+    def __str__(self):
+        return f'{self.__num_of_cells}'
+
+
+one = Cell(7)
+two = Cell(2)
+
+res = one + two
+print(res)
+res = one - two
+print(res)
+res = one * two
+print(res)
+res = one / two
+print(res)
+print(res.make_order(3))
