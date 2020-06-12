@@ -22,7 +22,7 @@
 class Storeage:
     __dicter = []
 
-    def __init__(self, in_dicter: dict):
+    def set_store(self, in_dicter: dict):
         self.__dicter.append([in_dicter])
 
     def __str__(self):
@@ -38,12 +38,10 @@ class OfficeEquipment:
         self.__price = price
         # return {'name': self.__name, 'ind': self.__ind,'quantity': self.__quantity,'price': self.__price}
 
-    @property
-    def unit(self):
+    def get_unit(self):
         return {'name': self.__name, 'ind': self.__id_num, 'quantity': self.__quantity, 'price': self.__price}
 
-    @property.setter
-    def unit(self, name, id_num, quantity, price):
+    def set_unit(self, name, id_num, quantity, price):
         self.__name = name
         if id_num.isdigit():
             self.__id_num = int(id_num)
@@ -72,4 +70,14 @@ class Scanner(OfficeEquipment):
 class Xerox(OfficeEquipment):
     pass
 
-unit1 = Printer()
+
+unit1 = Printer('La_print', 123, 122, 123)
+unit2 = Scanner('La_scan', 123, 122, 123)
+unit3 = Xerox('La_copy', 123, 122, 123)
+
+store = Storeage()
+store.set_store(unit1.get_unit())
+store.set_store(unit2.get_unit())
+store.set_store(unit3.get_unit())
+
+print(store)
